@@ -29,10 +29,12 @@ public class Program {
 		System.out.print("Birth date (DD/MM/YYYY): ");
 		String clientBirthDate = sc.nextLine();
 		
+		Client client = new Client(clientName, clientEmail, LocalDate.parse(clientBirthDate, formatter));
+		
 		System.out.println("Enter order data: ");
 		System.out.print("Status: ");
 		String status = sc.nextLine();
-		Order order = new Order(LocalDateTime.now(), OrderStatus.valueOf(status), new Client(clientName, clientEmail, LocalDate.parse(clientBirthDate, formatter)));
+		Order order = new Order(LocalDateTime.now(), OrderStatus.valueOf(status), client);
 		
 		System.out.print("How many items to this order? ");
 		int quantity = sc.nextInt();
@@ -48,6 +50,7 @@ public class Program {
 			order.addItem(new OrderItem(productQuantity, productPrice, new Product(productName, productPrice)));
 			
 		}
+		System.out.println();
 		System.out.println("ORDER SUMARY: ");
 		System.out.println(order);
 		

@@ -35,7 +35,7 @@ public class Order {
 		for (OrderItem orderItem : orderItem) {
 			sb.append(orderItem);
 		}
-		sb.append("Total price: $" + String.format("%.2f", total(orderItem)));
+		sb.append("Total price: $" + String.format("%.2f", total()));
 		return sb.toString();
 	}
 	
@@ -45,10 +45,10 @@ public class Order {
 	public void removeItem(OrderItem item) {
 		orderItem.remove(item);
 	}
-	public double total(List<OrderItem> orderItem) {
+	public double total() {
 		double sum = 0;
 		for(OrderItem list : this.orderItem) {
-			sum += list.subTotal(list.getQuantity(), list.getPrice());
+			sum += list.subTotal();
 		}
 		return sum;
 	}

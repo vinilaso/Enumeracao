@@ -17,11 +17,11 @@ public class OrderItem {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append(product + ", Quantity: " + this.quantity + ", Subtoal: $" + String.format("%.2f", subTotal(quantity, price) + "\n"));
+		sb.append(product + ", Quantity: " + this.quantity + ", Subtoal: $" + String.format("%.2f", subTotal()) + "\n");
 		return sb.toString();
 	}
 	
-	public double subTotal(int quantity, double price) {
+	public double subTotal() {
 		return (double) quantity * price;
 	}
 	
